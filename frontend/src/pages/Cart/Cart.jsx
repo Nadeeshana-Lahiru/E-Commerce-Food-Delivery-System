@@ -1,7 +1,7 @@
 import React from 'react'
-import './Home.css'
+import './Cart.css'
 
-const Home = () => {
+const Cart = () => {
   return (
     <div>
         
@@ -9,4 +9,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Cart
