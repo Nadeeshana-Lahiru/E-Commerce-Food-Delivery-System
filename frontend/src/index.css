@@ -19,3 +19,13 @@ a{
 .app{width: 80%;
   margin: auto;
 }
+
+/* fade effect for header text */
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
