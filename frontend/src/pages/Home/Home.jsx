@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Home.css'
 import Header from '../../components/Header/Header'
 import ExploreMenu from '../../components/ExploreMenu/ExploreMenu'
+import FoodDisplay from '../../components/FoodDisplay/FoodDisplay'
 
 const Home = () => {
 
@@ -14,6 +15,8 @@ const Home = () => {
         <Header />
         {/* pass the category state and setter function to ExploreMenu component */}
         <ExploreMenu category={category} setCategory={setCategory}/>
+        {/* mount the FoodDisplay component and pass the category state */}
+        <FoodDisplay category={category}/>
     </div>
   )
 }

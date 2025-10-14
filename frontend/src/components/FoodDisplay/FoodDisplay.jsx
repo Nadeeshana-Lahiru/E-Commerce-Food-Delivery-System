@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './FoodDisplay.css'
+import { StoreContext } from '../../context/StoreContext'
 
 const FoodDisplay = () => {
+
+    // get the food lisyt array from StoreContext API
+    const {food_list} = useContext(StoreContext)
+
   return (
-    <div></div>
+    <div className='food-display' id='food-display'>
+        <h2>Top dishes near you</h2>
+    </div>
   )
 }
 
