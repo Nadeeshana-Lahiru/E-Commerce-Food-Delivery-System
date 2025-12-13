@@ -13,8 +13,11 @@ const FoodDisplay = ({category}) => {
         <h2>Top dishes near you</h2>
         <div className="food-display-list">
             {food_list.map((item,index)=>{
-              // pass the propoties from FoodItem , map food_item component
-              return <FoodItem key={index} id={item._id} name={item.name} description={item. description} price={item.price} image={item.image}/>
+              // add filter for category
+              if (category==="All" || category===item.category) {
+                // pass the propoties from FoodItem , map food_item component
+                return <FoodItem key={index} id={item._id} name={item.name} description={item. description} price={item.price} image={item.image}/>
+              }
             })}
         </div>
     </div>
