@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
 import './FoodDisplay.css'
 import { StoreContext } from '../../context/StoreContext'
+import FoodItem from '../FoodItem/FoodItem'
 
-const FoodDisplay = () => {
+const FoodDisplay = ({category}) => {
 
     // get the food lisyt array from StoreContext API
     const {food_list} = useContext(StoreContext)
@@ -10,6 +11,12 @@ const FoodDisplay = () => {
   return (
     <div className='food-display' id='food-display'>
         <h2>Top dishes near you</h2>
+        <div className="food-display-list">
+            {food_list.map((item,index)=>{
+              // pass the propoties from FoodItem
+              return <FoodItem key={index} id={item._id} name={item.name} description={item. description} price={item.price} image={item.image}/>
+            })}
+        </div>
     </div>
   )
 }
