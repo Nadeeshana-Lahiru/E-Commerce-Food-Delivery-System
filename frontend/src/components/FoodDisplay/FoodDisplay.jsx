@@ -5,7 +5,7 @@ import FoodItem from '../FoodItem/FoodItem'
 
 const FoodDisplay = ({category}) => {
 
-    // get the food lisyt array from StoreContext API
+    // get the food lisyt array from StoreContext API, get the item from thie food_list array
     const {food_list} = useContext(StoreContext)
 
   return (
