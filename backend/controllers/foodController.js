@@ -7,6 +7,11 @@ import fs from 'fs'   // import file system
 
 const addFood = async (req,res) => {
 
+    // Check if the file actually exists before accessing .filename
+    if (!req.file) {
+        return res.json({ success: false, message: "Image not uploaded. Please check the field name." });
+    }
+
     let image_filename = `${req.file.filename}`;   // store uploaded file name
     
     const food = new foodModel({
