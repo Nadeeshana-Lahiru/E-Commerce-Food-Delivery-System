@@ -1,10 +1,10 @@
+import { data } from "react-router-dom";
 import foodModel from "../models/foodModel.js";
 import fs from 'fs'   // import file system
 
 
 
 // add food item
-
 const addFood = async (req,res) => {
 
     // Check if the file actually exists before accessing .filename
@@ -30,4 +30,16 @@ const addFood = async (req,res) => {
     }
 }
 
-export {addFood}
+// all food list display all food item listed in the database
+const listFood = async (req,res) => {
+    try {
+        const foods = await foodModel.find({});  // get all the data from food item
+        res.json({success:true,data:foods})
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"Error"})
+        
+    }
+}
+
+export {addFood,listFood}

@@ -1,5 +1,5 @@
 import express from 'express'
-import { addFood } from '../controllers/foodController.js'
+import { addFood,listFood } from '../controllers/foodController.js'
 import multer from 'multer'  // access image storage system
 
 const foodRouter = express.Router();
@@ -16,7 +16,7 @@ const upload = multer({storage:storage})  // store image in upload folder
 
 // send the data to server
 foodRouter.post("/add",upload.single("image"),addFood)
-
+foodRouter.get("/list",listFood)
 
 
 

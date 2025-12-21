@@ -15,8 +15,8 @@ app.use(cors())  // we can access backend from frontend
 connectDB();
 
 // api endpoints
-// api endpoint for food route
-app.use("/api/food",foodRouter)
+app.use("/api/food",foodRouter)  // api endpoint for food route
+app.use("/images",express.static('uploads'))  // api endpoint for image route
 
 // request the data from the server, give / end point with response message
 app.get("/",(req,res)=>{
