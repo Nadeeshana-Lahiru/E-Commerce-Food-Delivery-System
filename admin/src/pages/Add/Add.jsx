@@ -4,9 +4,7 @@ import { assets } from '../../assets/assets'
 import axios from "axios"
 import { toast } from 'react-toastify'
 
-const Add = () => {
-
-    const url = "http://localhost:4000";
+const Add = ({url}) => {
 
     // state varibale for store image
     const [image,setImage] = useState(false);
