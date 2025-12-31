@@ -6,7 +6,31 @@ import { response } from "express";
 
 // login user
 const loginUser = async (req,res) => {
+    // get the email , password from request body
+    const {email,password} = req.body;
+    try {
+        // if user available it will store  
+        const user = await userModel.findOne({email});
 
+        if (!user) {
+            return res.json({success:false,message:"User Doesn't exist"})
+        }
+
+        // check the password match
+        const isMatch = await bcrypt.compare(password,user.password);
+
+        if (!isMatch) {
+            return res.json({success:false,message:"Invalid Credentials"})
+        }
+
+        // if the password matching generate a token
+        const token = createToken(user._id);
+        res.json({success:true,token})
+
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"Error"})
+    }
 }
 
 // create token and send to the user
