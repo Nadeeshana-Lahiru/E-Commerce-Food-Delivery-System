@@ -10,6 +10,11 @@ const StoreContextProvider = (props) => {
     // useState for ItemCount from the FoodItem.jsx , name is cartItem / setter function name is setCartItem
     const [cartItems,setCartItems] = useState({});
 
+    // store the backend url
+    const url = "http://localhost:4000"
+
+    const [token,setToken] = useState("")
+
     // functionality for add to cart
     const addToCart = (itemId) => {
         if (!cartItems[itemId]) {
@@ -45,7 +50,10 @@ const StoreContextProvider = (props) => {
         setCartItems,
         addToCart,
         removeFromCart,
-        getTotalCartAmount
+        getTotalCartAmount,
+        url,
+        token,
+        setToken
     }
     return(
         <StoreContext.Provider value={contextValue}>
