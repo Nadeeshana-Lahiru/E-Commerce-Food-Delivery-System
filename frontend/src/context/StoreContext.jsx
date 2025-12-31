@@ -1,5 +1,5 @@
+import axios from "axios";
 import { createContext, useEffect, useState } from "react";
-import { food_list } from "../assets/assets";
 
 //create one context name is StoreContext
 export const StoreContext = createContext(null);
@@ -14,6 +14,9 @@ const StoreContextProvider = (props) => {
     const url = "http://localhost:4000"
 
     const [token,setToken] = useState("")
+
+    // food list for get the list from backend
+    const [food_list,setFoodList] = useState([])
 
     // functionality for add to cart
     const addToCart = (itemId) => {
@@ -43,11 +46,23 @@ const StoreContextProvider = (props) => {
         return totalAmount;
     }
 
+    // function for load the food item from backend to frontend
+    const fetchFoodList = async () => {
+        // call the API
+        const response = await axios.get(url+"/api/food/list")
+        setFoodList(response.data.data)
+    }
+
     // we will refresh the web page we will not logout
     useEffect(()=>{
-        if (localStorage.getItem("token")) {
+        async function loadData() {
+            await fetchFoodList();
+            if (localStorage.getItem("token")) {
             setToken(localStorage.getItem("token"))
+            }
         }
+        // load the data function call
+        loadData();
     },[])
 
     // create variable name contextValue
