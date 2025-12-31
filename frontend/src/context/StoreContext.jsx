@@ -43,6 +43,13 @@ const StoreContextProvider = (props) => {
         return totalAmount;
     }
 
+    // we will refresh the web page we will not logout
+    useEffect(()=>{
+        if (localStorage.getItem("token")) {
+            setToken(localStorage.getItem("token"))
+        }
+    },[])
+
     // create variable name contextValue
     const contextValue = {
         food_list,
