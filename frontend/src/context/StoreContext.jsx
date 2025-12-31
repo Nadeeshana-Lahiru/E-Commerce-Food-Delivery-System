@@ -24,7 +24,7 @@ const StoreContextProvider = (props) => {
             setCartItems((prev)=>({...prev,[itemId]:1}))  // add item first time this happen
         }
         else{
-            // if item allready have and cuantity is 1 we will increa item key
+            // if item allready have and quantity is 1 we will increa item key
             setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
         }
     }

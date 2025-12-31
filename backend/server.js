@@ -20,7 +20,7 @@ connectDB();
 app.use("/api/food",foodRouter)  // api endpoint for food route
 app.use("/images",express.static('uploads'))  // api endpoint for image route
 app.use("/api/user",userRouter)   // api for user router
-app.use("api/cart",cartRouter) // api for cart router
+app.use("/api/cart",cartRouter) // api for cart router
 
 // request the data from the server, give / end point with response message
 app.get("/",(req,res)=>{
